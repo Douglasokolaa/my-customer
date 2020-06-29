@@ -188,24 +188,33 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                      <form class="form-horizontal">
+                                                <form class="form-horizontal" action="{{ route('user.new') }}" method="POST">
                                             <div class="form-group row mb-3">
                                                 <label for="inputphone" class="col-3 col-form-label">Phone Number</label>
                                                 <div class="col-9">
-                                                    <input type="number" class="form-control" id="inputphone" placeholder="Phone Number">
+                                                    <input type="number" name="phone_number" class="form-control" id="inputphone" placeholder="Phone Number">
                                                 </div>
+                                                @error('phone_number')
+                                                <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <label for="inputPassword3" class="col-3 col-form-label">Password</label>
                                                 <div class="col-9">
-                                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                                                    <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password">
                                                 </div>
+                                                @error('password')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-group row mb-3">
                                                 <label for="inputPassword5" class="col-3 col-form-label">Re Password</label>
                                                 <div class="col-9">
-                                                    <input type="password" class="form-control" id="inputPassword5" placeholder="Retype Password">
+                                                    <input type="password" name="password_confirmation" class="form-control" id="inputPassword5" placeholder="Retype Password">
                                                 </div>
+                                                @error('password_confirmation')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
                                             </div>
                                             <div class="form-group mb-0 justify-content-end row">
                                                 <div class="col-9">
